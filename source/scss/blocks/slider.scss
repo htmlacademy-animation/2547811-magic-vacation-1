@@ -11,6 +11,18 @@
       min-height: calc(var(--vh, 1vh) * 100);
     }
   }
+
+  .swiper-slide-active {
+    .slider__item-text {
+      animation: animSliderText 0.6s ease-in-out 0.2s forwards;
+    }
+  }
+
+  .swiper-slide-next {
+    .slider__item-text {
+      animation: animSliderText 0.6s ease-in-out 0.4s forwards;
+    }
+  }
 }
 
 .slider__item {
@@ -96,6 +108,20 @@
   max-width: 34rem;
   font-size: 1.8rem;
   line-height: 2rem;
+  opacity: 0;
+  transform: translateX(10rem);
+
+  @keyframes animSliderText {
+    0% {
+      opacity: 0;
+      transform: translateX(10rem);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 
   @media (min-width: $stop-scaling) {
     margin-top: 36px;
