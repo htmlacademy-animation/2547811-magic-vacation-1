@@ -241,33 +241,33 @@
     display: block;
     color: inherit;
     padding: 0 0.5em 0.5em;
+    transition: color 0.3s ease-in-out;
 
     &::after {
       content: "";
       position: absolute;
       bottom: 0;
-      width: 100%;
+      width: 0;
       height: 2px;
       background-color: $c-light;
-      display: none;
-      left: 0;
+      left: 100%;
+      transform: translateX(-100%);
+      transition: width 0.5s ease-out;
 
       @media (max-width: $tablet) and (orientation: portrait) {
-        left: 0;
-        right: 0;
         background-color: $c-dark;
       }
 
       @media (max-width: $mobile) and (orientation: landscape) {
-        left: 0;
-        right: 0;
         background-color: $c-dark;
       }
     }
 
     &.active {
       &::after {
-        display: block;
+        width: 100%;
+        background-color: $c-light;
+        opacity: 1;
       }
     }
 
@@ -277,8 +277,12 @@
       outline: none;
 
       &::after {
-        opacity: 1;
+        width: 100%;
         background-color: $c-purple;
+        opacity: 1;
+        transition-timing-function: ease-in;
+        left: 0%;
+        transform: translateX(0%);
       }
     }
   }
