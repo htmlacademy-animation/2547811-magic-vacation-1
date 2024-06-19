@@ -93,6 +93,22 @@
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.27;
+  opacity: 0;
+  transform: translateY(3rem);
+  transition: 0.5s ease-in-out;
+  animation: animText 0.5s ease-in-out 0.5s forwards;
+
+  @keyframes animText {
+    0% {
+      opacity: 0;
+      transform: translateY(3rem);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
   @media (min-width: $stop-scaling) {
     width: 509px;
